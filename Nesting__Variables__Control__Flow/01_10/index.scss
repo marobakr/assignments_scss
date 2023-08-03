@@ -1,0 +1,90 @@
+// 01 assignments
+/* my var.. */
+$main: 'school';
+$child: 'box';
+$language: 'en'; // English
+$gap: 20px;
+
+.#{$main} {
+  padding: $gap;
+  @if $language == 'en' {
+    direction: ltr;
+  } @else {
+    direction: rtl;
+  }
+  margin-left: $gap;
+  .#{$child} {
+    padding: $gap / 2;
+  }
+  &:hover {
+    .#{$child} {
+      background-color: #eee;
+    }
+  }
+}
+
+// 02 assignments
+.content {
+  > .box {
+    padding: 15px;
+    > .title {
+      font-size: 18px;
+    }
+  }
+  .cat {
+    padding: 15px;
+  }
+  .premium {
+    &::before {
+      content: 'Premium Box';
+    }
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+// 03 assignments
+// 01 method
+.class > {
+  .child {
+    padding: 10px;
+  }
+}
+// 02 method
+.class {
+  > .child {
+    padding: 10px;
+  }
+}
+// 03 method
+.class + {
+  .child {
+    padding: 10px;
+  }
+}
+
+// 04 assignments
+// 01 method
+.class {
+  font-weight: bold;
+  font-size: 20px;
+}
+// 02 method
+.class {
+  font: {
+    weight: bold;
+    size: 20px;
+  }
+}
+
+// 05 assignments
+.parent + .sibling {
+  margin: auto;
+  margin-top: 10px;
+}
+// "+" => the next clild after frist child and parent ...It is Adjacent sibling combinator. It combines two sequences of simple selectors having the same parent and the second one must come IMMEDIATELY after the first.
+.parent + .sibling ~ .last {
+  padding: 10px;
+}
+//  "~" => the the all child after the frist child ... It is general sibling combinator and similar to Adjacent sibling combinator. the difference is that the second selector does NOT have to immediately follow the first one means It will select all elements that is preceded by the former selector.
